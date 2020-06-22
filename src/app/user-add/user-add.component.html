@@ -8,36 +8,38 @@
           <div class="col-lg-12">
               <div class="iq-card">
                 <div class="iq-card-body">
-                  <form>
+
+                  <form [formGroup] = "registerForm" (ngSubmit)="register()">
                      <div class="row">
                          <div class="col-lg-10">
-                              <div class="form-group">
-                                <label>User Role:</label>
-                                <select class="form-control" id="selectuserrole">
-                                  <option>Select</option>
-                                  <option>Web Designer</option>
-                                  <option>Web Developer</option>
-                                  <option>Tester</option>
-                                  <option>Php Developer</option>
-                                  <option>Ios Developer </option>
-                                </select>
+                            <div class="form-group">
+                                <label for="furl">Nom et prenom</label>
+                                <input type="text" class="form-control" id="furl" formControlName="fullname" placeholder="Prénoms et nom">
                             </div>
                             <div class="form-group">
-                                <label for="furl">Facebook Url:</label>
-                                <input type="text" class="form-control" id="furl" placeholder="Facebook Url">
+                                <label for="turl">Email</label>
+                                <input type="text" class="form-control" id="turl" formControlName="email" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <label for="turl">Twitter Url:</label>
-                                <input type="text" class="form-control" id="turl" placeholder="Twitter Url">
+                                <label for="instaurl">Telephone</label>
+                                <input type="text" class="form-control" id="instaurl" formControlName="telephone" placeholder="Téléphone">
                             </div>
                             <div class="form-group">
-                                <label for="instaurl">Instagram Url:</label>
-                                <input type="text" class="form-control" id="instaurl" placeholder="Instagram Url">
+                                <label for="lurl">Mot de passe</label>
+                                <input type="text" class="form-control" id="lurl" formControlName="password" placeholder="Mot de passe">
                             </div>
-                            <div class="form-group">
-                                <label for="lurl">Linkedin Url:</label>
-                                <input type="text" class="form-control" id="lurl" placeholder="Linkedin Url">
-                            </div>
+
+                              <div class="form-group col-sm-6">
+                                  <label class="d-block">Genre:</label>
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadio6" name="customRadio1" formControlName="genre" class="custom-control-input" checked="">
+                                    <label class="custom-control-label" for="customRadio6"> Masculin </label>
+                                  </div>
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="customRadio7" name="customRadio1" formControlName="genre" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio7"> Feminin </label>
+                                  </div>
+                              </div>
                          </div>
 
                          <div class="col-lg-2">
@@ -60,6 +62,7 @@
                                 </div>
                             </div>
                         </div>
+
                       </div>
                     </div>
                     <div class="row">
@@ -68,6 +71,7 @@
                         </div>
                     </div>
                  </form>
+
                 </div>
               </div>
           </div>

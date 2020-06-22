@@ -15,15 +15,26 @@
                   <div class="sign-in-from">
                       <h1 class="mb-0 text-center">Sign in</h1>
                       <p class="text-center text-dark">Enter your email address and password to access admin panel.</p>
-                      <form class="mt-4">
+                      <form  class="mt-4" [formGroup] = "signForm" novalidate (ngSubmit)="login()">
                           <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
-                              <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
+                              <input type="tel" class="form-control mb-0" formControlName="telephone" id="exampleInputEmail1" placeholder="Email" required/>
+                              <div *ngIf="signForm.controls['telephone'].invalid && (signForm.controls['telephone'].dirty || signForm.controls['telephone'].touched)" class="alert alert-danger">
+                                <div *ngIf="signForm.controls['telephone'].errors.required">
+                                  Name is required.
+                                </div>
+                              </div>
+
                           </div>
                           <div class="form-group">
-                              <label for="exampleInputPassword1">Password</label>
+                              <label for="exampleInputPassword1">Mot de passe</label>
                               <a href="#" class="float-right">Forgot password?</a>
-                              <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password">
+                              <input type="password" class="form-control mb-0" formControlName="password" id="exampleInputPassword1" placeholder="Password">
+                                <div *ngIf="signForm.controls['password'].invalid && (signForm.controls['password'].dirty || signForm.controls['password'].touched)" class="alert alert-danger">
+                                  <div *ngIf="signForm.controls['password'].errors.required">
+                                   Le champs mot de passe est obligatoire
+                                  </div>
+                                </div>
                           </div>
                           <div class="d-inline-block w-100">
                               <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
@@ -32,8 +43,8 @@
                               </div>
                           </div>
                           <div class="sign-info text-center">
-                              <!-- <button type="submit" class="btn btn-primary d-block w-100 mb-2">Sign in</button> -->
-                              <a routerLink="dashboard" class="btn btn-primary d-block w-100 mb-2">Sign In</a>
+                              <button type="submit" class="btn btn-primary d-block w-100 mb-2">Connexion</button>
+                              <!-- <a routerLink="dashboard" class="btn btn-primary d-block w-100 mb-2">Sign In</a> -->
                               <span class="text-dark dark-color d-inline-block line-height-2">Don't have an account? <a href="#">Sign up</a></span>
                           </div>
                       </form>

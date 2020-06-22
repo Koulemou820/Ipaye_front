@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddComponent implements OnInit {
 
-  constructor() { }
+  registerForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.registerForm = this.fb.group({
+        fullname: ['', Validators.required],
+        email: ['', Validators.required],
+        telephone: ['',  Validators.required],
+        password:['',  Validators.required],
+        genre: ['', Validators.required]
+    });
+  }
+
+  register(){
+    console.log("Donnees du formulaire...",this.registerForm.value );
   }
 
 }
