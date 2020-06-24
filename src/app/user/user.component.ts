@@ -1,3 +1,4 @@
+import { getCookie } from './../cookies';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
+  user:any;
+
   constructor() { }
 
   ngOnInit() {
+     this.user = getCookie('user');
+
+     console.log(this.user);
   }
 
 }

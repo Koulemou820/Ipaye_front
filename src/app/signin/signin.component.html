@@ -17,11 +17,11 @@
                       <p class="text-center text-dark">Enter your email address and password to access admin panel.</p>
                       <form  class="mt-4" [formGroup] = "signForm" novalidate (ngSubmit)="login()">
                           <div class="form-group">
-                              <label for="exampleInputEmail1">Email address</label>
+                              <label for="exampleInputEmail1">Téléphone</label>
                               <input type="tel" class="form-control mb-0" formControlName="telephone" id="exampleInputEmail1" placeholder="Email" required/>
                               <div *ngIf="signForm.controls['telephone'].invalid && (signForm.controls['telephone'].dirty || signForm.controls['telephone'].touched)" class="alert alert-danger">
                                 <div *ngIf="signForm.controls['telephone'].errors.required">
-                                  Name is required.
+                                  Le champs telephone est obligatoire
                                 </div>
                               </div>
 
@@ -43,7 +43,7 @@
                               </div>
                           </div>
                           <div class="sign-info text-center">
-                              <button type="submit" class="btn btn-primary d-block w-100 mb-2">Connexion</button>
+                              <button type="submit" class="btn btn-primary d-block w-100 mb-2" [disabled]="signForm.invalid" >Connexion</button>
                               <!-- <a routerLink="dashboard" class="btn btn-primary d-block w-100 mb-2">Sign In</a> -->
                               <span class="text-dark dark-color d-inline-block line-height-2">Don't have an account? <a href="#">Sign up</a></span>
                           </div>

@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserComponent } from './user/user.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   {path:'profile', component: ProfileComponent},
   {path:'users', component: UserComponent},
   {path:'users/add', component: UserAddComponent},
+  {path:'password/change', component: PasswordChangeComponent},
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     SidebarComponent,
     ProfileComponent,
     UserComponent,
-    UserAddComponent
+    UserAddComponent,
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes),

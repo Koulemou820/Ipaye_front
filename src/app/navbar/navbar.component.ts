@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { getCookie, deleteCookie } from './../cookies';
 import { ApiService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+   user:any
+
+  constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit() {
+
+    this.user = JSON.parse(getCookie('user'));
+
   }
 
   logout(){
     let body = {'telephone':'','password':''}
-     this.apiService.post(body,'auth/logout').subscribe((data) => this.displayData(data));
+    this.apiService.post(body,'auth/logout').subscribe((data) => this.displayData(data));
+    deleteCookie('user');
+    deleteCookie('token');
+    this.router.navigate(['/'])
   }
 
   displayData(data){

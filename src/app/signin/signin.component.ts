@@ -1,3 +1,4 @@
+import { setCookie } from './../cookies';
 import { ApiService } from './../api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,15 +23,20 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
-      let body = this.signForm.value;
-     this.apiService.post(body,'auth/login').subscribe((data) => this.displayData(data));
-     console.log("Donnees du formulaire...", this.signForm.value);
-     this.router.navigate(['/dashboard'])
+     let body = this.signForm.value;
+     this.apiService.post(body,'auth/login').subscribe((data) => this.displayData(data),);
+     console.log(this.signForm.value);
   }
 
    displayData(data){
       console.log(data);
+      setCookie("token", data.access_token, data.expires_in)
+      setCookie("user",JSON.stringify(data), data.expires_s)
+     this.router.navigate(['/dashboard'])
    }
 
+   displayError(error){
+      console.log(error);
+   }
 
 }

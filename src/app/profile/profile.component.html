@@ -12,10 +12,11 @@
                           <div class="iq-card-header d-flex justify-content-between">
                             <div class="iq-header-title">
                                 <h4 class="card-title">Informations</h4>
+                                  <a routerLink="/password/change" class="btn btn-primary btn-sm float-right">Changer le mot de passe</a>
                             </div>
                           </div>
                           <div class="iq-card-body">
-                            <form [formGroup] = "profileForm" (ngSubmit)="register()">
+                            <form [formGroup] = "profileForm" novalidate (ngSubmit)="register()">
                                 <div class="form-group row align-items-center">
                                   <div class="col-md-12">
                                       <div class="profile-img-edit">
@@ -30,19 +31,19 @@
                                 <div class=" row align-items-center">
                                   <div class="form-group col-sm-6">
                                       <label for="fname">Prenoms et nom</label>
-                                      <input type="text" class="form-control" id="fullname" placeholder="Prénoms et nom"/>
+                                      <input type="text" class="form-control" id="fullname" formControlName="nom" placeholder="Prénoms et nom" />
                                   </div>
                                   <div class="form-group col-sm-6">
-                                      <label for="email">Email:</label>
-                                      <input type="text" class="form-control" id="email" placeholder="Email"/>
+                                      <label for="uname">Identifiant:</label>
+                                      <input type="text" class="form-control" id="identifiant" formControlName="identifiant" placeholder="Identifiant"/>
                                   </div>
                                   <div class="form-group col-sm-6">
-                                      <label for="uname">Téléphone:</label>
-                                      <input type="text" class="form-control" id="telephone" placeholder="Téléphone"/>
+                                      <label for="cname">Pays:</label>
+                                      <input type="text" class="form-control" id="address" formControlName="pays" placeholder="Pays"/>
                                   </div>
                                   <div class="form-group col-sm-6">
-                                      <label for="cname">Adresse:</label>
-                                      <input type="text" class="form-control" id="address" placeholder="Adresse"/>
+                                      <label for="cname">Devise:</label>
+                                      <input type="text" class="form-control" id="address" formControlName="devise" placeholder="Devise"/>
                                   </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Sauvegarder</button>
