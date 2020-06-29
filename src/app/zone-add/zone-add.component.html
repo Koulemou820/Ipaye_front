@@ -1,0 +1,67 @@
+<div class="wrapper">
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+
+  <app-sidebar></app-sidebar>
+
+    <div id="content-page" class="content-page">
+      <div class="row">
+        <div class="col-lg-12">
+          <a routerLink="/zones" class="btn btn-primary btn-sm float-right">Zones</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="iq-edit-list-data">
+            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+              <div class="iq-card">
+                  <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">Ajouter une zone </h4>
+                    </div>
+                  </div>
+                  <div class="iq-card-body">
+                    <form [formGroup] = "zoneForm" novalidate (ngSubmit)="zoneSave()">
+                      <div class=" row align-items-center">
+                        <div class="form-group col-sm-6">
+                            <label for="fname">Indicatif</label>
+                            <input type="text" class="form-control" id="indicatif" formControlName="indicatif" placeholder="Indicatif" />
+                            <div *ngIf="zoneForm.controls['indicatif'].invalid && (zoneForm.controls['indicatif'].dirty || zoneForm.controls['indicatif'].touched)" class="alert alert-danger">
+                              <div *ngIf="zoneForm.controls['indicatif'].errors.required">
+                                Le champs indificatif est obligatoire
+                              </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="uname">Pays:</label>
+                            <input type="text" class="form-control" id="pays" formControlName="pays" placeholder="Pays"/>
+                            <div *ngIf="zoneForm.controls['pays'].invalid && (zoneForm.controls['pays'].dirty || zoneForm.controls['pays'].touched)" class="alert alert-danger">
+                              <div *ngIf="zoneForm.controls['pays'].errors.required">
+                                Le champs pays est obligatoire
+                              </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <select class="custom-select" formControlName="deviseId">
+                              <option value="" disabled>--Selectionner</option>
+                              <option *ngFor="let devise of devises" [ngValue]="devise.id">{{devise.code}}</option>
+                            </select>
+                            <div *ngIf="zoneForm.controls['deviseId'].invalid && (zoneForm.controls['deviseId'].dirty || zoneForm.controls['deviseId'].touched)" class="alert alert-danger">
+                              <div *ngIf="zoneForm.controls['deviseId'].errors.required">
+                                Le champs devise est obligatoire
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2" [disabled]="zoneForm.invalid" >Sauvegarder</button>
+                      <button type="reset" class="btn iq-bg-danger">Annuler</button>
+                  </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>

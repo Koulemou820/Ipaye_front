@@ -22,4 +22,12 @@ export class ApiService {
     return this._httpClient.get(this.baseUrl+''+ uri,{headers:this.headers});
   }
 
+  delete(code, uri){
+     return this._httpClient.delete(this.baseUrl+''+ uri + '/' + code , {headers:this.headers})
+  }
+
+  put(code, uri, body){
+     return this._httpClient.put(this.baseUrl+''+ uri + '/' + code , body,  {headers:this.headers})
+  }
+
 }

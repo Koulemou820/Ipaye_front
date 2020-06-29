@@ -22,7 +22,6 @@ export class ProfileComponent implements OnInit {
       identifiant: [this.user.identifiant, Validators.required],
       pays: [this.user.pays, Validators.required],
       devise: [this.user.devise, Validators.required],
-
     });
 
     this.showProfile()

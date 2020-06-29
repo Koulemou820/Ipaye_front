@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+
+  <app-sidebar></app-sidebar>
+
+  <div id="content-page" class="content-page">
+    <div class="row">
+      <div class="col-lg-12">
+        <a routerLink="/zones" class="btn btn-primary btn-sm float-right">Liste des zones</a>
+        <a routerLink="/zones/edit/{{zone.indicatif}}" class="btn btn-primary btn-sm float-right">
+          <i class="fa fa-edit"></i> Modifier
+        </a>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="iq-edit-list-data">
+            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+              <div class="iq-card">
+                  <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">Detail devise</h4>
+                    </div>
+                  </div>
+                  <div class="iq-card-body">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h3>Indicatif</h3>
+                             <p>{{ zone.indicatif}}</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h3>Zone</h3>
+                             <p>{{zone.pays}}</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h3>Devises</h3>
+                             <p>{{zone.devise}}</p>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+
+  <app-sidebar></app-sidebar>
+
+  <div id="content-page" class="content-page">
+    <div class="row">
+      <div class="col-lg-12">
+        <a routerLink="/operateurs" class="btn btn-primary btn-sm float-right">Liste des operateurs</a>
+        <a routerLink="/operateurs/edit/{{op.operateur}}" class="btn btn-primary btn-sm float-right">
+          <i class="fa fa-edit"></i> Modifier
+        </a>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="iq-edit-list-data">
+            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+              <div class="iq-card">
+                  <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">Detail operateur</h4>
+                    </div>
+                  </div>
+                  <div class="iq-card-body">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <h3>Operateur</h3>
+                            <p>{{ op.operateur }}</p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

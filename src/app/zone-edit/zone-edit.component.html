@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <!-- navbar -->
+    <app-navbar></app-navbar>
+
+    <app-sidebar></app-sidebar>
+
+    <div id="content-page" class="content-page">
+      <div class="row">
+        <div class="col-lg-12">
+          <a routerLink="/zones" class="btn btn-primary btn-sm float-right">Zones</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="iq-edit-list-data">
+            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+              <div class="iq-card">
+                  <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">Ajouter une zone </h4>
+                    </div>
+                  </div>
+                  <div class="iq-card-body">
+                    <form  #zoneForm = "ngForm" (ngSubmit) = "onClickSubmit(zoneForm.value, zone.indicatif)" >
+                      <div class=" row align-items-center">
+                        <div class="form-group col-sm-6">
+                            <label for="fname">Indicatif</label>
+                            <input type="text" class="form-control" id="indicatif" name="indicatif" [(ngModel)]="zone.indicatif" placeholder="Indicatif" />
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="uname">Pays:</label>
+                            <input type="text" class="form-control" id="pays" name="pays"  [(ngModel)]="zone.pays"  placeholder="Pays"/>
+                        </div>
+
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2" >Sauvegarder</button>
+                      <button type="reset" class="btn iq-bg-danger">Annuler</button>
+                  </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>

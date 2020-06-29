@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+
+  <app-sidebar></app-sidebar>
+
+  <div id="content-page" class="content-page">
+    <div class="row">
+      <div class="col-lg-12">
+        <a routerLink="/devises" class="btn btn-primary btn-sm float-right">Liste de devise</a>
+        <a routerLink="/devises/edit/{{devise.code}}" class="btn btn-primary btn-sm float-right">
+          <i class="fa fa-edit"></i> Modifier
+        </a>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="iq-edit-list-data">
+            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+              <div class="iq-card">
+                  <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title">Detail devise</h4>
+                    </div>
+                  </div>
+                  <div class="iq-card-body">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h3>Code</h3>
+                             <p>{{ devise?devise.code:'Non defini'}}</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h3>Nom de la devise</h3>
+                             <p>{{ devise.display_name}}</p>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
